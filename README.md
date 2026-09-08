@@ -31,6 +31,15 @@ bun run types
 bun run dev
 ```
 
+## Update OpenCode on Cloudflare
+
+Pull the latest `@opencode-ai/sdk@dev` and `@opencode-ai/server@dev`, sync
+`app.version`, typecheck, and deploy:
+
+```sh
+bun run update
+```
+
 ## Deploy
 
 Wrangler must be logged in first. The gzip bundle is about 3.6 MiB, so the

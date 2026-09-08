@@ -1,6 +1,7 @@
 import { DurableObject } from "cloudflare:workers"
 import { ServerWorkerd } from "@opencode-ai/server/workerd"
 import { Effect, Scope } from "effect"
+import { OPENCODE_VERSION } from "./opencode-version"
 
 type OpenCodeHandler = (request: Request) => Promise<Response>
 
@@ -81,7 +82,7 @@ async function bootHandler(
       password,
       app: {
         name: "oc-cf",
-        version: "0.0.0-dev-19237",
+        version: OPENCODE_VERSION,
       },
       config: { content: JSON.stringify(CONFIG) },
     }).pipe(Scope.provide(scope)),
