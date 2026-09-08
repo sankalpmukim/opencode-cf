@@ -47,9 +47,18 @@ bun run deploy
 
 Username is always `opencode`. Password is the Worker secret.
 
+The CLI reads `OPENCODE_PASSWORD`, then `OPENCODE_SERVER_PASSWORD`. The
+variable must be exported to the `opencode2` process. In fish, `set` alone
+does not export:
+
+```fish
+set -x OPENCODE_SERVER_PASSWORD 'hello world'
+opencode2 --server https://oc-cf.sankalpmukim.workers.dev
+```
+
 ```sh
-export OPENCODE_SERVER_PASSWORD='your-password'
-opencode2 --server https://oc-cf.<account>.workers.dev
+export OPENCODE_SERVER_PASSWORD='hello world'
+opencode2 --server https://oc-cf.sankalpmukim.workers.dev
 ```
 
 Health check:

@@ -13,13 +13,19 @@ const CONFIG = {
 } as const
 
 function unauthorized(): Response {
-  return new Response("Unauthorized", {
-    status: 401,
-    headers: {
-      "WWW-Authenticate": 'Basic realm="opencode"',
-      "Cache-Control": "no-store",
+  return Response.json(
+    {
+      _tag: "UnauthorizedError",
+      message: "Unauthorized",
     },
-  })
+    {
+      status: 401,
+      headers: {
+        "WWW-Authenticate": 'Basic realm="opencode"',
+        "Cache-Control": "no-store",
+      },
+    },
+  )
 }
 
 async function digest(value: string): Promise<ArrayBuffer> {
@@ -73,6 +79,10 @@ async function bootHandler(
     ServerWorkerd.create({
       storage,
       password,
+      app: {
+        name: "oc-cf",
+        version: "0.0.0-dev-19237",
+      },
       config: { content: JSON.stringify(CONFIG) },
     }).pipe(Scope.provide(scope)),
   )
