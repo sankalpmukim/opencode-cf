@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "oc-cf",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true,
+    },
+  },
+  "secrets": {
+    "required": ["OPENCODE_SERVER_PASSWORD"],
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "OPENCODE",
+        "class_name": "OpenCodeInstance",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["OpenCodeInstance"],
+    },
+  ],
+}

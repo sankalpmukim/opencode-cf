@@ -1,0 +1,6 @@
+OPENCODE_SERVER_PASSWORD=change-me
+# Optional model provider keys. OpenCode reads these from process.env.
+# ANTHROPIC_API_KEY=
+# OPENAI_API_KEY=
+# GOOGLE_GENERATIVE_AI_API_KEY=
+# OPENCODE_API_KEY=
