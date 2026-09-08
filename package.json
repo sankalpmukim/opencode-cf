@@ -10,8 +10,8 @@
     "update": "bun run scripts/update.ts"
   },
   "dependencies": {
-    "@opencode-ai/sdk": "dev",
-    "@opencode-ai/server": "dev",
+    "@opencode-ai/sdk": "^0.0.0-dev-19272",
+    "@opencode-ai/server": "^0.0.0-dev-19272",
     "effect": "4.0.0-rc.112"
   },
   "devDependencies": {
